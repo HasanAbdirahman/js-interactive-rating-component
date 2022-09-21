@@ -1,22 +1,16 @@
-const mainContainer = document.querySelector(".container")
-const thanksContainer = document.querySelector(".thank-you")
-const submitButton = document.getElementById("submit-rating")
-const rateAgain = document.getElementById("rate-again")
-const ratings = document.querySelectorAll(".btn")
-const actualRating = document.getElementById("rating")
+let submitButton = document.querySelector(".ending");
+let displayPage = document.querySelector(".next-page");
+let select = document.querySelectorAll(".circle");
+let rating = document.querySelector(".protect");
+let firstPage = document.querySelector(".first-page");
 
-submitButton.addEventListener("click", () => {
-  mainContainer.style.display = "none"
-  thanksContainer.classList.remove("hidden")
+submitButton.addEventListener("click", function () {
+  document.querySelector(".next-page").classList.remove("hidden");
+  firstPage.classList.add("hidden");
 
-  ratings.forEach((rating) => {
-    rating.addEventListener("click", () => {
-      actualRating.innerHTML = rating.innerHTML
-    })
-  })
-})
-
-rateAgain.addEventListener("click", () => {
-  mainContainer.style.display = "block"
-  thanksContainer.classList.add("hidden")
-})
+  for (const each of select) {
+    if (each.clicked == true) {
+      rating.textContent = "You selected " + checkedInput.getAttribute("value") + " out of 5";
+    }
+  }
+});
